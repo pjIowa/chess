@@ -11,7 +11,6 @@ public class ChessTest {
 		
 		ChessFrame chessFrame = new ChessFrame(length);// Get the size of the screen
 		chessFrame.setDefaultCloseOperation(ChessFrame.EXIT_ON_CLOSE);
-		chessFrame.setSize(length, length);
 		chessFrame.setVisible(true);
 		
 		//dimension variable
@@ -25,8 +24,6 @@ public class ChessTest {
 		 
 		// Move the window
 		chessFrame.setLocation(x, y);
-		
-
 	}
 
 }
