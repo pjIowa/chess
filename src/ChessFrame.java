@@ -139,7 +139,7 @@ public class ChessFrame extends JFrame{
 								labelSet.get(previousSelectedIndex).setIcon(null);
 								labelSet.get(index).setIcon(piece.getIcon());
 								
-								//remove piece references
+								//remove references
 								pieceSet.remove(index);
 								pieceSet.remove(previousSelectedIndex);
 								//add piece reference at new location
@@ -165,8 +165,8 @@ public class ChessFrame extends JFrame{
 							labelSet.get(previousSelectedIndex).setIcon(null);
 							labelSet.get(index).setIcon(piece.getIcon());
 							
-							//remove destination piece reference
-							pieceSet.remove(index);
+							//remove reference
+							pieceSet.remove(previousSelectedIndex);
 							//add reference at new location
 							pieceSet.put(index, piece);
 							
