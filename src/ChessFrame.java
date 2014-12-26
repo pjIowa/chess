@@ -135,12 +135,15 @@ public class ChessFrame extends JFrame{
 						if(destPiece != null){
 							//allow kill when destination is opponent's piece
 							if(piece.isWhite()^destPiece.isWhite()){
-								//move icon to new position
+								//move icons
 								labelSet.get(previousSelectedIndex).setIcon(null);
 								labelSet.get(index).setIcon(piece.getIcon());
 								
-								//remove piece reference
+								//remove piece references
+								pieceSet.remove(index);
 								pieceSet.remove(previousSelectedIndex);
+								//add piece reference at new location
+								pieceSet.put(index, piece);
 								
 								//deselect original position
 								labelSet.get(previousSelectedIndex).deselect();
@@ -162,8 +165,8 @@ public class ChessFrame extends JFrame{
 							labelSet.get(previousSelectedIndex).setIcon(null);
 							labelSet.get(index).setIcon(piece.getIcon());
 							
-							//remove piece reference
-							pieceSet.remove(previousSelectedIndex);
+							//remove destination piece reference
+							pieceSet.remove(index);
 							//add reference at new location
 							pieceSet.put(index, piece);
 							
