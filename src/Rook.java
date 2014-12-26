@@ -22,6 +22,7 @@ public class Rook extends ChessPiece {
 		//vertical move
 		if(((index%8)==(previousIndex%8))&&((index/8)!=(previousIndex/8))){
 			if(index>previousIndex){
+				//check for pieces in between
 				do{
 					previousIndex+=8;
 					if(set.contains(Integer.valueOf(previousIndex))) return false;

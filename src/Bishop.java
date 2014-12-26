@@ -18,7 +18,41 @@ public class Bishop extends ChessPiece {
 
 	@Override
 	public boolean canMove(int previousIndex, int index, Set<Integer> set) {
-		return true;
+		//left diagonal as seen by user
+		if((index - previousIndex)%7 == 0){
+			//check for pieces in between
+			if(index>previousIndex){
+				do{
+					previousIndex+=7;
+					if(set.contains(Integer.valueOf(previousIndex))) return false;
+				}while(previousIndex+7<index);
+			}
+			else{
+				do{
+					index+=7;
+					if(set.contains(Integer.valueOf(index))) return false;
+				}while(index+7<previousIndex);
+			}
+			return true;
+		}
+		//right diagonal as seen by user
+		else if((index - previousIndex)%9 == 0){
+			if(index>previousIndex){
+				do{
+					previousIndex+=9;
+					if(set.contains(Integer.valueOf(previousIndex))) return false;
+				}while(previousIndex+9<index);
+			}
+			else{
+				do{
+					index+=9;
+					if(set.contains(Integer.valueOf(index))) return false;
+				}while(index+9<previousIndex);
+			}
+			return true;
+		}
+		else return false;
+		
 	}
 
 	@Override
