@@ -19,7 +19,28 @@ public class Horse extends ChessPiece {
 
 	@Override
 	public boolean canMove(int previousIndex, int index, Set<Integer> set) {
-		return true;
+		int prevRow = previousIndex/8;
+		int prevCol = previousIndex%8;
+		int destRow = index/8;
+		int destCol = index%8;
+
+		//down 2, left 1
+		if((destRow==prevRow+2)&&(destCol==prevCol-1)) return true;
+		//down 2, right 1
+		else if((destRow==prevRow+2)&&(destCol==prevCol+1)) return true;
+		//down 1, left 2
+		else if((destRow==prevRow+1)&&(destCol==prevCol-2)) return true;
+		//down 1, right 2
+		else if((destRow==prevRow+1)&&(destCol==prevCol+2)) return true;
+		//up 2, left 1
+		else if((destRow==prevRow-2)&&(destCol==prevCol-1)) return true;
+		//up 2, right 1
+		else if((destRow==prevRow-2)&&(destCol==prevCol+1)) return true;
+		//up 1, left 2
+		else if((destRow==prevRow-1)&&(destCol==prevCol-2)) return true;
+		//up 1, right 2
+		else if((destRow==prevRow-1)&&(destCol==prevCol+2)) return true;
+		return false;
 	}
 
 	@Override
@@ -34,7 +55,7 @@ public class Horse extends ChessPiece {
 		} 
 		catch (IOException e) {return null;}
 	}
-	
-	
+
+
 
 }
