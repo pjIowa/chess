@@ -131,7 +131,7 @@ public class ChessFrame extends JFrame{
 					ChessPiece piece = pieceSet.get(previousSelectedIndex);
 					ChessPiece destPiece = pieceSet.get(index);
 					
-					if(piece.canMove(previousSelectedIndex, index)){
+					if(piece.canMove(previousSelectedIndex, index, pieceSet.keySet())){
 						if(destPiece != null){
 							//allow kill when destination is opponent's piece
 							if(piece.isWhite()^destPiece.isWhite()){
@@ -141,8 +141,6 @@ public class ChessFrame extends JFrame{
 								
 								//remove piece reference
 								pieceSet.remove(previousSelectedIndex);
-								//update reference for new location
-								pieceSet.put(index, piece);
 								
 								//deselect original position
 								labelSet.get(previousSelectedIndex).deselect();

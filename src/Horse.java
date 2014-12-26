@@ -2,6 +2,7 @@ import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.Set;
 
 import javax.imageio.ImageIO;
 import javax.swing.Icon;
@@ -17,7 +18,7 @@ public class Horse extends ChessPiece {
 	}
 
 	@Override
-	public boolean canMove(int previousIndex, int index) {
+	public boolean canMove(int previousIndex, int index, Set<Integer> set) {
 		return true;
 	}
 
