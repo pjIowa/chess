@@ -18,7 +18,15 @@ public class King extends ChessPiece {
 
 	@Override
 	public boolean canMove(int previousIndex, int index, Set<Integer> set) {
-		return true;
+		int prevRow = previousIndex/8;
+		int prevCol = previousIndex%8;
+		int destRow = index/8;
+		int destCol = index%8;
+		
+		if((Math.abs(prevRow-destRow)==0) || (Math.abs(prevRow-destRow)==1))
+			if((Math.abs(prevCol-destCol)==0) || (Math.abs(prevCol-destCol)==1))
+				return true;
+		return false;
 	}
 
 	@Override
