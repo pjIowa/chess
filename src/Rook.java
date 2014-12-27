@@ -23,37 +23,36 @@ public class Rook extends ChessPiece {
 		if(((index%8)==(previousIndex%8))&&((index/8)!=(previousIndex/8))){
 			if(index>previousIndex){
 				//check for pieces in between
-				do{
+				while(index>previousIndex+8){
 					previousIndex+=8;
 					if(set.contains(Integer.valueOf(previousIndex))) return false;
-				}while(previousIndex+8<index);
+				}
 			}
 			else{
-				do{
+				while(previousIndex>index+8){
 					index+=8;
 					if(set.contains(Integer.valueOf(index))) return false;
-				}while(index+8<previousIndex);
+				}
 			}
 			return true;
 		}
 		//horizontal move
 		else if(((index%8)!=(previousIndex%8))&&((index/8)==(previousIndex/8))){
 			if(index>previousIndex){
-				do{
+				while(index>previousIndex+1){
 					previousIndex+=1;
 					if(set.contains(Integer.valueOf(previousIndex))) return false;
-				}while(previousIndex+1<index);
+				}
 			}
 			else{
-				do{
+				while(previousIndex>index+1){
 					index+=1;
 					if(set.contains(Integer.valueOf(index))) return false;
-				}while(index+1<previousIndex);
+				}
 			}
 			return true;
 		}
-		else
-			return false;
+		return false;
 	}
 
 	@Override
