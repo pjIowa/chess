@@ -18,7 +18,72 @@ public class Queen extends ChessPiece {
 
 	@Override
 	public boolean canMove(int previousIndex, int index, Set<Integer> set) {
-		return true;
+		//left diagonal as seen by user
+		if((index - previousIndex)%7 == 0){
+			//check for pieces in between
+			if(index>previousIndex){
+				while(index>previousIndex+7){
+					previousIndex+=7;
+					if(set.contains(Integer.valueOf(previousIndex))) return false;
+				}
+			}
+			else{
+				while(previousIndex>index+7){
+					index+=7;
+					if(set.contains(Integer.valueOf(index))) return false;
+				}
+			}
+			return true;
+		}
+		//right diagonal
+		else if((index - previousIndex)%9 == 0){
+			if(index>previousIndex){
+				while(index>previousIndex+7){
+					previousIndex+=7;
+					if(set.contains(Integer.valueOf(previousIndex))) return false;
+				}
+			}
+			else{
+				while(previousIndex>index+7){
+					index+=7;
+					if(set.contains(Integer.valueOf(index))) return false;
+				}
+			}
+			return true;
+		}
+		//vertical move
+		else if(((index%8)==(previousIndex%8))&&((index/8)!=(previousIndex/8))){
+			if(index>previousIndex){
+				while(index>previousIndex+8){
+					previousIndex+=8;
+					if(set.contains(Integer.valueOf(previousIndex))) return false;
+				}
+			}
+			else{
+				while(previousIndex>index+8){
+					index+=8;
+					if(set.contains(Integer.valueOf(index))) return false;
+				}
+			}
+			return true;
+		}
+		//horizontal move
+		else if(((index%8)!=(previousIndex%8))&&((index/8)==(previousIndex/8))){
+			if(index>previousIndex){
+				while(index>previousIndex+1){
+					previousIndex+=1;
+					if(set.contains(Integer.valueOf(previousIndex))) return false;
+				}
+			}
+			else{
+				while(previousIndex>index+1){
+					index+=1;
+					if(set.contains(Integer.valueOf(index))) return false;
+				}
+			}
+			return true;
+		}
+		else return false;
 	}
 
 	@Override
