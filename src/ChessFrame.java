@@ -1,19 +1,12 @@
 import java.awt.*;
-import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
 
 import javax.swing.*;
-import javax.imageio.ImageIO;
-
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.image.BufferedImage;
 
+@SuppressWarnings("serial")
 public class ChessFrame extends JFrame{
 
 	private GridLayout grid;
@@ -42,7 +35,7 @@ public class ChessFrame extends JFrame{
 				mIndex=i*8+j;
 
 				//store reference to square
-				labelSet.add(new ChessSquare(mIndex));
+				labelSet.add(new ChessSquare());
 
 				//initialize square with a piece and keep a reference
 				addPiece(mIndex);

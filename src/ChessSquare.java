@@ -1,31 +1,16 @@
 import java.awt.Color;
-import java.awt.Image;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
 
-import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 
+@SuppressWarnings("serial")
 public class ChessSquare extends JLabel {
 
-	//location on frame
-	private int index;
 	//initial label color
 	private Color iColor;
 
-	public ChessSquare(int index)
-	{
-		this.index=index;
-		
+	public ChessSquare()
+	{	
 		setOpaque(true);
 		setHorizontalAlignment(JLabel.CENTER);
 		setVerticalAlignment(JLabel.CENTER);

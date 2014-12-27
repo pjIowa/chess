@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.util.Set;
 
 import javax.imageio.ImageIO;
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
 
