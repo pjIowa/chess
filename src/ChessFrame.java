@@ -55,7 +55,7 @@ public class ChessFrame extends JFrame{
 		}
 	}
 
-	public void addPiece(int index){
+	private void addPiece(int index){
 		ChessPiece piece;
 		switch (index) {
 		case 0: case 7: piece = new Rook(true);
@@ -93,6 +93,25 @@ public class ChessFrame extends JFrame{
 			//set icon
 			labelSet.get(index).setIcon(piece.getIcon());
 		}
+	}
+	
+	//controls black pieces on board
+	private void makeComputerMove(){
+		//get a list of all possible moves
+			//go through all positions on board
+				//go through each piece that is not white
+				//if end position is different from start position
+					//if piece can move to that position
+						//if destination is white piece, classify kill with score
+						//else if destination is empty, classify as neutral
+		//for each possible move
+			//fitness function
+				//add what is gained if kill
+				//add what is danger to black king
+				//add if white king goes in check
+		
+		//switch turn after move
+		isWhiteTurn = !isWhiteTurn;
 	}
 
 	private class iMouseListener extends MouseAdapter
@@ -145,6 +164,7 @@ public class ChessFrame extends JFrame{
 								
 								//switch turn
 								isWhiteTurn = !isWhiteTurn;
+								makeComputerMove();
 							}
 							//deselect original position for invalid kill
 							else{
@@ -170,6 +190,7 @@ public class ChessFrame extends JFrame{
 							
 							//switch turn
 							isWhiteTurn = !isWhiteTurn;
+							makeComputerMove();
 						}
 					}
 					//piece doesn't have freedom to move to new position
